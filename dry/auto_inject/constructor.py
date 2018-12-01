@@ -8,7 +8,7 @@ class Constructor:
 
     for name in self._names:
       val = kwargs.get(name) or self._container.resolve(name)
-      obj.__setattr__(name, val)
+      obj.__setattr__('_'+name, val)
 
   def _check_unexpected_kwargs(self, kwargs):
     unexpected_kwargs = kwargs.keys() - self._names

@@ -1,13 +1,7 @@
 import dry
+import demo
+from demo.importer import ImportProducts
 
-container = dry.Container()
-container.register('test', 1)
-container.resolve('test') # => 1
+products = ImportProducts()()
 
-Inject = dry.AutoInject(container)
-
-@Inject('test')
-class MyClass:
-  pass
-
-print(MyClass().test)
+print('\n'.join(products))
